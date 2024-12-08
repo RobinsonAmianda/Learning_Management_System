@@ -1,0 +1,59 @@
+<form method="post" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    {% csrf_token %}
+    <h2 style="text-align: center; margin-bottom: 20px; font-family: Arial, sans-serif;">Add/Edit Result</h2>
+
+    <div style="margin-bottom: 15px;">
+        <label for="username" style="display: block; font-weight: bold; margin-bottom: 5px;">Username</label>
+        <select name="username" id="username" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">
+            <option value="" disabled selected>Select Username</option>
+           {% for student in students %}
+                <option value="{{ student.id }}" {% if result and result.student.id == student.id %}selected{% endif %}>
+                    {{ student.name }}
+                </option>
+           {% endfor %}
+        </select>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="topic_name" style="display: block; font-weight: bold; margin-bottom: 5px;">Topic Name</label>
+        <select name="topic_name" id="topic_name" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">
+            <option value="" disabled selected>Select Topic</option>
+            {% for topic in topics %}
+            <option value="{{ topic.id }}" {% if result.topic_name == topic.id %}selected{% endif %}>{{ topic.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="marks" style="display: block; font-weight: bold; margin-bottom: 5px;">Marks</label>
+        <input type="number" name="marks" id="marks" value="{{ result.marks|default:'' }}" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="result_status" style="display: block; font-weight: bold; margin-bottom: 5px;">Pass or Fail</label>
+        <select name="result_status" id="result_status" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">
+            <option value="" disabled selected>Select status</option>
+            <option value="pass" {% if result.good %}selected{% endif %}>Pass</option>
+            <option value="fail" {% if result.fail %}selected{% endif %}>Fail</option>
+        </select>
+    </div>
+
+    <div style="text-align: center;">
+        <button type="submit"
+            style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: 0.3s;"
+            onmouseover="this.style.backgroundColor='#0056b3';"
+            onmouseout="this.style.backgroundColor='#007BFF';">Save Result</button>
+    </div>
+</form>

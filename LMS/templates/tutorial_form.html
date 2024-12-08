@@ -1,0 +1,33 @@
+<form method="post" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    {% csrf_token %}
+    <h2 style="text-align: center; margin-bottom: 20px; font-family: Arial, sans-serif;">Add/Edit Tutorial</h2>
+
+    <div style="margin-bottom: 15px;">
+        <label for="title" style="display: block; font-weight: bold; margin-bottom: 5px;">Title</label>
+        <input type="text" name="title" id="title" value="{{ tutorial.title|default:'' }}" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="description" style="display: block; font-weight: bold; margin-bottom: 5px;">Description</label>
+        <textarea name="description" id="description" rows="4" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">{{ tutorial.description|default:'' }}</textarea>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="video" style="display: block; font-weight: bold; margin-bottom: 5px;">Video</label>
+        <input type="file" name="video" id="video"
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; outline: none;">
+    </div>
+
+    <div style="text-align: center;">
+        <button type="submit"
+            style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: 0.3s;"
+            onmouseover="this.style.backgroundColor='#0056b3';"
+            onmouseout="this.style.backgroundColor='#007BFF';">Save Tutorial</button>
+    </div>
+</form>

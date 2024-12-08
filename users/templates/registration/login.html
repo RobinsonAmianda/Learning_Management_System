@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f0f4f8; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; color: #333;">
+
+    <div style="background: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); padding: 30px; border-radius: 10px; width: 100%; max-width: 400px; margin: 20px;">
+        <h2 style="text-align: center; margin-bottom: 20px; color: #007bff; font-size: 24px;">Login</h2>
+        <form method="POST"  style="display: flex; flex-direction: column; gap: 15px;">
+            {% csrf_token %}
+
+            <!-- Username Field -->
+            <label>
+                <input type="text" name="username" placeholder="Username" required style="padding: 12px; border: 2px solid #ccc; border-radius: 8px; font-size: 16px; width: 100%; transition: all 0.3s ease;">
+            </label>
+
+            <!-- Email Field -->
+            <label>
+                <input type="email" name="email" placeholder="Email" required style="padding: 12px; border: 2px solid #ccc; border-radius: 8px; font-size: 16px; width: 100%; transition: all 0.3s ease;">
+            </label>
+
+            <a href="{% url 'home' %}" style=" padding: 12px;padding-left: 170px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;">Login</a>
+        </form>
+
+
+
+    </div>
+
+</body>
+</html>

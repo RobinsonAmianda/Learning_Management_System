@@ -1,0 +1,24 @@
+<div style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+    <h2 style="text-align: center; margin-bottom: 20px;">Results</h2>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="padding: 10px; text-align: left;">Student</th>
+                <th style="padding: 10px; text-align: left;">Topic</th>
+                <th style="padding: 10px; text-align: left;">Score</th>
+                <th style="padding: 10px; text-align: left;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td style="padding: 10px;">{{ result.username }}</td>
+                <td style="padding: 10px;">{{ result.topic_name }}</td>
+                <td style="padding: 10px;">{{ result.marks }}</td>
+                <td style="padding: 10px;">{{ result.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <h2 style="text-align: center; margin-bottom: 20px; font-family: Arial, sans-serif;">Topics</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px;">
+        {% for topic in topics %}
+        <div style="background: #ffffff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; padding: 15px;">
+
+            <h3 style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px; text-align: center;">{{ topic.title }}</h3>
+
+            <p style="font-size: 14px; color: #555; line-height: 1.6; text-align: justify; margin-bottom: 15px;">{{ topic.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>

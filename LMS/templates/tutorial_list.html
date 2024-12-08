@@ -1,0 +1,30 @@
+{% load static %}
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <h2 style="text-align: center; margin-bottom: 20px; font-family: Arial, sans-serif;">Tutorials</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        {% for tutorial in tutorials %}
+        <div style="background: #ffffff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            {% if tutorial.video %}
+            <div style="height: 200px; overflow: hidden; border-bottom: 1px solid #ddd;">
+                <video style="width: 100%; height: 100%; object-fit: cover;" controls>
+                    <source src="{% static 'videos/Python Flask Mpesa ExpressSTK PUSH API Integration.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            {% endif %}
+
+            <div style="padding: 15px;">
+                <h3 style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px; text-align: center;">{{ tutorial.title }}</h3>
+                <p style="font-size: 14px; color: #555; line-height: 1.6; text-align: justify; margin-bottom: 15px;">{{ tutorial.description }}</p>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <a href="{% url 'tutorial_edit' tutorial.id %}" style="display: inline-block; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-size: 14px; text-align: center; background-color: #007bff; color: #fff; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">Edit</a>
+
+                    <a href="{% url 'tutorial_delete' tutorial.id %}" style="display: inline-block; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-size: 14px; text-align: center; background-color: #ff4d4f; color: #fff; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#cc0000';" onmouseout="this.style.backgroundColor='#ff4d4f';">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

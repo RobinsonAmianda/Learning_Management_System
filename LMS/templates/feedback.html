@@ -1,0 +1,10 @@
+<div style="max-width: 800px; margin: 20px auto; padding: 20px;">
+    <h2 style="text-align: center;">Feedback</h2>
+    <ul style="list-style-type: none; padding: 0;">
+        {% for message in feedback %}
+        <li style="padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,37 @@
+<form method="post" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    {% csrf_token %}
+    <h2 style="text-align: center; margin-bottom: 20px; font-family: Arial, sans-serif;">Add/Edit Instructor</h2>
+
+    <div style="margin-bottom: 15px;">
+        <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px;">Name</label>
+        <input type="text" name="name" id="name" value="{{ instructor.name|default:'' }}" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="email" style="display: block; font-weight: bold; margin-bottom: 5px;">Email</label>
+        <input type="email" name="email" id="email" value="{{ instructor.email|default:'' }}" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="mobile" style="display: block; font-weight: bold; margin-bottom: 5px;">Mobile</label>
+        <input type="text" name="mobile" id="mobile" value="{{ instructor.mobile|default:'' }}" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: 0.3s; outline: none;"
+            onfocus="this.style.borderColor='#007BFF';"
+            onblur="this.style.borderColor='#ccc';">
+    </div>
+
+
+
+    <div style="text-align: center;">
+        <button type="submit"
+            style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: 0.3s;"
+            onmouseover="this.style.backgroundColor='#0056b3';"
+            onmouseout="this.style.backgroundColor='#007BFF';">Save Instructor </button>
+    </div>
+</form>
